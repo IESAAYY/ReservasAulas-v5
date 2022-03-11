@@ -4,8 +4,8 @@ encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/d
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Profesor.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Reserva.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Tramo.java=UTF-8
-encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/negocio/memoria/Aulas.java=UTF-8
-encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/negocio/memoria/Profesores.java=UTF-8
+encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/negocio/ficheros/Aulas.java=UTF-8
+encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/negocio/ficheros/Profesores.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/vista/Vista.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/utilidades/Entrada.java=UTF-8
 encoding//src/test/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/AllTests.java=UTF-8

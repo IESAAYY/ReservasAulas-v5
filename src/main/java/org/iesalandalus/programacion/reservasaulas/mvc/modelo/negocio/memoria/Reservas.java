@@ -323,29 +323,31 @@ public class Reservas implements IReservas{
 	@Override
 	public boolean consultarDisponibilidad(Aula aula, Permanencia permanencia) {
 		boolean disponible = true;
-		
-		if(aula == null) {
+
+		if (aula == null) {
 			throw new NullPointerException("ERROR: No se puede consultar la disponibilidad de un aula nula.");
 		}
-		if(permanencia == null) {
+		if (permanencia == null) {
 			throw new NullPointerException("ERROR: No se puede consultar la disponibilidad de una permanencia nula.");
 		}
-		
+
 		// Algoritmo 1
 		Iterator<Reserva> it = arrayListReserva.iterator();
 		while (it.hasNext()) {
 			Reserva cReserva = it.next();
-			if(cReserva.getAula().equals(aula) && cReserva.getPermanencia().equals(permanencia)) {
+			if (cReserva.getAula().equals(aula) && cReserva.getPermanencia().equals(permanencia)) {
 				disponible = false;
 			}
 		}
-		
+
 		// Algoritmo 2
 		Reserva reserva = getReservaAulaDia(aula, permanencia.getDia());
-		if(reserva.getPermanencia().getPuntos() != permanencia.getPuntos()) {
-			disponible = false;
+		if (reserva != null) {
+			if (reserva.getPermanencia().getPuntos() != permanencia.getPuntos()) {
+				disponible = false;
+			}
 		}
-		
+
 		return disponible;
 	}
 	

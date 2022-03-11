@@ -206,7 +206,6 @@ public class Consola {
 			} catch (DateTimeParseException e) {
 				System.out.println(e.getMessage());
 			}
-			System.out.println("");
 		} while(!hValida);
 		
 		return hora;

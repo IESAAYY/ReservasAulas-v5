@@ -376,6 +376,7 @@ public class Vista implements IVista {
 					System.out.println("");
 					System.out.println("El aula " + aula.getNombre() + " se encuentra disponible en la permanencia introducida.");
 				} else {
+					System.out.println("");
 					System.out.println("El aula " + aula.getNombre() + " no se encuentra disponible en la permanencia introducida.");
 				}
 			}

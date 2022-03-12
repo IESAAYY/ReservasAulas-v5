@@ -10,9 +10,9 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IAulas;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IProfesores;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IReservas;
-import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.ficheros.Aulas;
-import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.ficheros.Profesores;
-import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.ficheros.Reservas;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria.Aulas;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria.Profesores;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria.Reservas;
 
 public class Modelo implements IModelo {
 	private IAulas aulas;
@@ -23,6 +23,21 @@ public class Modelo implements IModelo {
 		profesores = fuenteDatos.crearProfesores();
 		aulas = fuenteDatos.crearAulas();
 		reservas = fuenteDatos.crearReservas();
+	}
+
+	@Override
+	public void comenzar() {
+		aulas.comenzar();
+		profesores.comenzar();
+		reservas.comenzar();
+	}
+
+	@Override
+	public void terminar() {
+		aulas.terminar();
+		profesores.terminar();
+		reservas.terminar();
+		
 	}
 
 	@Override
@@ -55,7 +70,7 @@ public class Modelo implements IModelo {
 	}
 
 	@Override
-	public List <Profesor> getProfesores() {
+	public List<Profesor> getProfesores() {
 		return profesores.getProfesores();
 	}
 

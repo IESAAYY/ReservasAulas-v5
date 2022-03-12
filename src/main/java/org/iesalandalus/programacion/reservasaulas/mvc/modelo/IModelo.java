@@ -11,6 +11,10 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
 
 public interface IModelo {
 
+	public void comenzar();
+
+	public void terminar();
+
 	List<Aula> getAulas();
 
 	List<String> representarAulas();
@@ -25,7 +29,7 @@ public interface IModelo {
 
 	List<String> representarProfesores();
 
-	Profesor buscarProfesor(Profesor profesor) ;
+	Profesor buscarProfesor(Profesor profesor);
 
 	void insertarProfesor(Profesor profesor) throws OperationNotSupportedException;
 
@@ -35,7 +39,7 @@ public interface IModelo {
 
 	int getNumReservas();
 
-	List<String> representarReservas() ;
+	List<String> representarReservas();
 
 	Reserva buscarReserva(Reserva reserva);
 
@@ -43,9 +47,9 @@ public interface IModelo {
 
 	void anularReserva(Reserva reserva) throws OperationNotSupportedException;
 
-	List<Reserva> getReservasAula(Aula aula) ;
+	List<Reserva> getReservasAula(Aula aula);
 
-	List<Reserva> getReservasProfesor(Profesor profesor) ;
+	List<Reserva> getReservasProfesor(Profesor profesor);
 
 	List<Reserva> getReservasPermanencia(Permanencia permanencia);
 

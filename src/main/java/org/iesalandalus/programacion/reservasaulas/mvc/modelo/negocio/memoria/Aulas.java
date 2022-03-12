@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.ficheros;
+package org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria;
 
 import java.io.EOFException;
 import java.io.File;
@@ -18,7 +18,6 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IAulas;
 
 public class Aulas implements IAulas {
 
-	public static final String NOMBRE_FICHERO_AULAS = "datos/aulas.txt";
 	private List<Aula> arrayListAula;
 
 	public Aulas() {
@@ -30,58 +29,13 @@ public class Aulas implements IAulas {
 	}
 
 	public void comenzar() {
-		leer();
 
 	}
-	
-	private void leer() {
-		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(NOMBRE_FICHERO_AULAS));
-			
-			Aula aula = null;
-			
-			do {
-				aula = (Aula) ois.readObject();
-				insertar(aula);
-			} while (aula != null);
-			
-			ois.close();
-			
-		} catch (ClassNotFoundException e) {
-			System.out.println("ERROR: No puedo encontrar la clase que tengo que leer.");
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: No puedo abrir el fichero aulas.");
-		} catch (EOFException e) {
-			System.out.println("Fichero aulas leído satisfactoriamente.");
-		} catch (IOException e) {
-			System.out.println("Error inesperado de Entrada/Salida(Aulas).");
-		} catch (OperationNotSupportedException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
+
 	public void terminar() {
-		escribir();
+
 	}
 
-	private void escribir() {
-		try {
-			File file = new File(NOMBRE_FICHERO_AULAS);
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
-
-			for (Aula a : arrayListAula) {
-				oos.writeObject(a);
-			}
-			oos.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: No puedo crear el fichero alumnos.");
-		} catch (IOException e) {
-
-			System.out.println("Error inesperado de Entrada/Salida.");
-		}
-	}
-
-	
 	private void setAulas(Aulas aulas) {
 		if (aulas == null) {
 			throw new NullPointerException("ERROR: No se pueden copiar aulas nulas.");
@@ -92,12 +46,12 @@ public class Aulas implements IAulas {
 	@Override
 	public List<Aula> getAulas() {
 		List<Aula> aLAulaOrdenadaPorNombre = copiaProfundaAulas(arrayListAula);
-		
-		 aLAulaOrdenadaPorNombre.sort(Comparator.comparing(Aula :: getNombre));
-		 
-		 return aLAulaOrdenadaPorNombre;
+
+		aLAulaOrdenadaPorNombre.sort(Comparator.comparing(Aula::getNombre));
+
+		return aLAulaOrdenadaPorNombre;
 	}
-	
+
 	private List<Aula> copiaProfundaAulas(List<Aula> arraylistAula) {
 		List<Aula> cArrayListAula = new ArrayList<Aula>();
 		Iterator<Aula> it = arraylistAula.iterator();
@@ -128,22 +82,23 @@ public class Aulas implements IAulas {
 	}
 
 	@Override
-	
+
 	public Aula buscar(Aula aula) {
 		if (aula == null) {
 			throw new NullPointerException("ERROR: No se puede buscar un aula nula.");
 		}
-		
-		// Algoritmo: Permite devolver datos reales del aula introducido en mÃ©todo insertarAula de Vista
+
+		// Algoritmo: Permite devolver datos reales del aula introducido en método
+		// insertarAula de Vista
 		Aula[] cAula = new Aula[arrayListAula.size()];
-		arrayListAula.toArray(cAula);	
-		
+		arrayListAula.toArray(cAula);
+
 		for (int i = 0; i < arrayListAula.size(); i++) {
 			if (cAula[i].equals(aula)) {
-				aula = cAula[i];		
-			} 
+				aula = cAula[i];
+			}
 		}
-		
+
 		if (!arrayListAula.contains(aula)) {
 			return null;
 		} else {
@@ -157,7 +112,7 @@ public class Aulas implements IAulas {
 			throw new NullPointerException("ERROR: No se puede borrar un aula nula.");
 		}
 		if (!arrayListAula.contains(aula)) {
-			throw new OperationNotSupportedException("ERROR: No existe ningÃºn aula con ese nombre.");
+			throw new OperationNotSupportedException("ERROR: No existe ningún aula con ese nombre.");
 		}
 
 		arrayListAula.remove(aula);

@@ -87,12 +87,11 @@ public class Vista implements IVista {
 		try {
 			Aula aulaFicticia = Consola.leerAulaFicticia();
 			List<Reserva> reservasAula = controlador.getReservasAula(aulaFicticia);
+			System.out.println("");
 			if (reservasAula.size() > 0) {
 				System.out.println("No se puede borrar un aula con reserva");
 			} else {
-
 				controlador.borrarAula(aulaFicticia);
-				System.out.println("");
 				System.out.println(OPERACION_CORRECTA + NOMBRE_VALIDO + ".");
 			}
 		} catch (NullPointerException | OperationNotSupportedException | IllegalArgumentException e) {
@@ -185,12 +184,11 @@ public class Vista implements IVista {
 			Profesor profesorFicticio = Consola.leerProfesorFicticio();
 			List<Reserva> reservasProfesor = controlador.getReservasProfesor(profesorFicticio);
 			
+			System.out.println("");
 			if (reservasProfesor.size() > 0) {
 				System.out.println("No se puede borrar un profesor con reserva");
-				
 			} else {
 				controlador.borrarProfesor(profesorFicticio);
-				System.out.println("");
 				System.out.println(OPERACION_CORRECTA + CORREO_VALIDO + ".");
 			}
 		} catch (NullPointerException | OperationNotSupportedException | IllegalArgumentException e) {

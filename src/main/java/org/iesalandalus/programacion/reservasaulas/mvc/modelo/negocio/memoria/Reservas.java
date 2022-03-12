@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.ficheros;
+package org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria;
 
 import java.time.LocalDate;
 
@@ -6,15 +6,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-//Esta clase es pr√°cticamente id√©ntica a la clase Aulas
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+//Esta clase es pr·cticamente idÈntica a la clase Aulas
+
+
+
 import java.time.*;
 import javax.naming.OperationNotSupportedException;
 
@@ -27,8 +22,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IReservas;
 
 public class Reservas implements IReservas{
-	
-	public static final String NOMBRE_FICHERO_PROFESORES = "datos/reservas.txt";
+
 	private static final float MAX_PUNTOS_PROFESOR_MES = 200f;
 	
 	private List<Reserva> arrayListReserva;
@@ -42,57 +36,13 @@ public class Reservas implements IReservas{
 	}
 	
 	public void comenzar() {
-		leer();
-	}
-	
-	private void leer() {
-		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(NOMBRE_FICHERO_PROFESORES));
-			Reserva reserva = null;
-			
-			do {
-				reserva = (Reserva) ois.readObject();
-				insertar(reserva);
-			} while (reserva != null);
-			
-			ois.close();
-			
-		} catch (ClassNotFoundException e) {
-			System.out.println("ERROR: No puedo encontrar la clase que tengo que leer.");
-		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: No puedo abrir el fichero reservas.");
-		} catch (EOFException e) {
-			System.out.println("Fichero reservas le√≠do satisfactoriamente.");
-		} catch (IOException e) {
-			System.out.println("Error inesperado de Entrada/Salida(Reservas).");
-		} catch (OperationNotSupportedException e) {
-			System.out.println(e.getMessage());
-		}
 		
 	}
-	
-	public void terminar() {
-		escribir();
-	}
-	
-	private void escribir() {
-		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(NOMBRE_FICHERO_PROFESORES));
-			
-			for (Reserva r : arrayListReserva) {
-				oos.writeObject(r);
-			}
-			
-			oos.close();
-			
-		} catch (FileNotFoundException e) {
-			
-			System.out.println("ERROR: No puedo crear el fichero alumnos.");
-		} catch (IOException e) {
 
-			System.out.println("Error inesperado de Entrada/Salida.");
-		}
+	public void terminar() {
+		
 	}
+
 	
 	private List<Reserva> copiaProfundaReservas(List<Reserva> arrayListReserva) {
 		List<Reserva> cArrayListReserva = new ArrayList<Reserva>();
@@ -155,22 +105,22 @@ public class Reservas implements IReservas{
 		// Se guarda reserva que desea realizar usuario en reservaDia
 		Reserva reservaDia = getReservaAulaDia(reserva.getAula(), reserva.getPermanencia().getDia());
 		if (reservaDia != null) {
-			// Compara la reserva que desea realizar usuario con reservas creadas en el mismo d√≠a
+			// Compara la reserva que desea realizar usuario con reservas creadas en el mismo dÌa
 			if (reserva.getPermanencia() instanceof PermanenciaPorTramo && reservaDia.getPermanencia() instanceof PermanenciaPorHora ) {
-				throw new OperationNotSupportedException("ERROR: Ya se ha realizado una reserva de otro tipo de permanencia para este d√≠a.");
+				throw new OperationNotSupportedException("ERROR: Ya se ha realizado una reserva de otro tipo de permanencia para este dÌa.");
 			}
 			if (reserva.getPermanencia() instanceof PermanenciaPorHora && reservaDia.getPermanencia() instanceof PermanenciaPorTramo) {
-				throw new OperationNotSupportedException("ERROR: Ya se ha realizado una reserva de otro tipo de permanencia para este d√≠a.");
+				throw new OperationNotSupportedException("ERROR: Ya se ha realizado una reserva de otro tipo de permanencia para este dÌa.");
 			}
 		}	
 		if (arrayListReserva.contains(reserva)) {
 			throw new OperationNotSupportedException("ERROR: Ya existe una reserva igual.");
 		}
 		if (!esMesSiguienteOPosterior(reserva)) {
-			throw new OperationNotSupportedException("ERROR: S√≥lo se pueden hacer reservas para el mes que viene o posteriores.");
+			throw new OperationNotSupportedException("ERROR: SÛlo se pueden hacer reservas para el mes que viene o posteriores.");
 		}
 		if (getPuntosGastadosReserva(reserva) > MAX_PUNTOS_PROFESOR_MES) {
-			throw new OperationNotSupportedException("ERROR: Esta reserva excede los puntos m√°ximos por mes para dicho profesor.");
+			throw new OperationNotSupportedException("ERROR: Esta reserva excede los puntos m·ximos por mes para dicho profesor.");
 		}	
 		
 		arrayListReserva.add(new Reserva(reserva));
@@ -183,11 +133,11 @@ public class Reservas implements IReservas{
 		int mesActual = LocalDate.now().getMonthValue();
 		boolean valido = false;
 		
-		// Caso de reserva en mismo a√±o
+		// Caso de reserva en mismo aÒo
 		if ((agnoReserva == agnoActual && (mesReserva - mesActual == 1 || mesReserva - mesActual == 2))) {
 			valido = true;
 		}
-		// Caso de reserva en a√±o siguiente
+		// Caso de reserva en aÒo siguiente
 		if ((agnoReserva - agnoActual == 1 && (mesReserva - mesActual == -11 || mesReserva - mesActual == -10))) {
 			valido = true;
 		}
@@ -254,7 +204,7 @@ public class Reservas implements IReservas{
 			throw new IllegalArgumentException("ERROR: No se puede borrar una reserva nula.");
 		}
 		if (!esMesSiguienteOPosterior(reserva)) {
-			throw new OperationNotSupportedException("ERROR: S√≥lo se pueden anular reservas para el mes que viene o posteriores.");
+			throw new OperationNotSupportedException("ERROR: SÛlo se pueden anular reservas para el mes que viene o posteriores.");
 		}
 		if (!arrayListReserva.contains(reserva)) {
 			throw new OperationNotSupportedException("ERROR: No existe ninguna reserva igual.");
@@ -371,13 +321,13 @@ public class Reservas implements IReservas{
 	
 	/*
 	 * Algoritmo 1: tiene limitaciones dado que existe polimorfismo, por lo tanto, 
-	 * solo nos dice si para el aula y la fecha pasados al par√°metros, hay una reserva, pero
+	 * solo nos dice si para el aula y la fecha pasados al par·metros, hay una reserva, pero
 	 * no del tipo de permanencia. 
-	 * Para resolver este problema, se usa el √∫ltimo algoritmo.
+	 * Para resolver este problema, se usa el ˙ltimo algoritmo.
 	 * 
-	 * Algoritmo 2: getPuntos devolver√° int 10 si la es PermanenciaPorTramo, y 3 si es PermanenciaPorHora.
-	 * Si la condici√≥n es cierta, sabremos que no estar√° disponible el aula introducido
-	 * en el par√°metro al no coincidir el tipo de permanencia.
+	 * Algoritmo 2: getPuntos devolver· int 10 si la es PermanenciaPorTramo, y 3 si es PermanenciaPorHora.
+	 * Si la condiciÛn es cierta, sabremos que no estar· disponible el aula introducido
+	 * en el par·metro al no coincidir el tipo de permanencia.
 	 */ 
 	@Override
 	public boolean consultarDisponibilidad(Aula aula, Permanencia permanencia) {

@@ -11,7 +11,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
 public class MainApp {
 
 	public static final void main(String[] args) {
-		final IModelo modelo = new Modelo(FactoriaFuenteDatos.MEMORIA.crear());
+		final IModelo modelo = new Modelo(FactoriaFuenteDatos.FICHEROS.crear());
 		final IVista vista = new Vista();
 		final IControlador controlador = new Controlador(modelo, vista);
 		controlador.comenzar();

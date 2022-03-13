@@ -9,7 +9,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.IVista;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
 /**
  * 
- * @author Yulei
+ * @author Yulei Yan
  *
  */
 public class MainApp {

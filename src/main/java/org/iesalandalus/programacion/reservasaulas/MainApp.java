@@ -10,6 +10,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
 /**
  * 
  * @author Yulei Yan
+ * ReservasAulaV3
  *
  */
 public class MainApp {

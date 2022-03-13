@@ -11,7 +11,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
  * 
  * @author Yulei Yan
  * ReservasAulaV3
- * Intento 17:09
+ * Intento 17:10
  */
 public class MainApp {
 

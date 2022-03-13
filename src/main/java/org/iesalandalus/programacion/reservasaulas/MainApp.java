@@ -7,7 +7,11 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.IModelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.Modelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.IVista;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
-
+/**
+ * 
+ * @author Yulei
+ *
+ */
 public class MainApp {
 
 	public static final void main(String[] args) {

@@ -296,9 +296,9 @@ public class Vista implements IVista {
 		Consola.mostrarCabecera(Opcion.LISTAR_RESERVAS.getMensaje());
 		
 		try {
-			List<Reserva> reserva = controlador.getReservas();
-			for (Reserva r : reserva) {
-				System.out.println(r);
+			List<String> reservas = controlador.representarReservas();
+			for (String s : reservas) {
+				System.out.println(s);
 			}	
 		} catch (NullPointerException | IllegalArgumentException e) {
 			System.out.println(e.getMessage());

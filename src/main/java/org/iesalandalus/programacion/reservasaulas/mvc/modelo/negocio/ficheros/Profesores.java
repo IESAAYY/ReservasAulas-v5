@@ -171,7 +171,7 @@ public class Profesores implements IProfesores{
 	public List<String> representar()  {
 		List <String> representacion = new ArrayList<>();
 		
-		for (Iterator <Profesor>it = arrayListProfesor.iterator(); it.hasNext();) {
+		for (Iterator <Profesor>it = getProfesores().iterator(); it.hasNext();) {
 			representacion.add(it.next().toString());
 		}
 		

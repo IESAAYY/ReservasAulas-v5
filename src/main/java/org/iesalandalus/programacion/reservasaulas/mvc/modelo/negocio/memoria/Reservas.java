@@ -217,7 +217,7 @@ public class Reservas implements IReservas{
 	public List<String> representar()  {
 		List <String> representacion = new ArrayList<>();
 		
-		for (Reserva a : arrayListReserva) {
+		for (Reserva a : getReservas()) {
 			representacion.add(a.toString());
 		}
 		

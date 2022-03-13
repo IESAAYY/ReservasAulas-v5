@@ -122,7 +122,7 @@ public class Aulas implements IAulas {
 	public List<String> representar() {
 		List<String> representacion = new ArrayList<>();
 
-		for (Aula a : arrayListAula) {
+		for (Aula a : getAulas()) {
 			representacion.add(a.toString());
 		}
 

@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 public abstract class Permanencia implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private LocalDate dia;
 	protected static final DateTimeFormatter FORMATO_DIA = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 

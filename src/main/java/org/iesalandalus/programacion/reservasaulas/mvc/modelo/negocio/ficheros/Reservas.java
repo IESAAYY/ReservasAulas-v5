@@ -114,10 +114,10 @@ public class Reservas implements IReservas{
 		Comparator<Permanencia> comparadorPermanencia = (Permanencia p1, Permanencia p2) -> {
 			int comparacion = -1;
 			if (p1.getDia().equals(p2.getDia())) {
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorTramo && p2 instanceof PermanenciaPorTramo) {
 					comparacion = Integer.compare(((PermanenciaPorTramo)p1).getTramo().ordinal() , ((PermanenciaPorTramo)p2).getTramo().ordinal());
 				}
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorHora) {
 					comparacion = ((PermanenciaPorHora)p1).getHora().compareTo(((PermanenciaPorHora)p2).getHora());
 				}
 			}
@@ -297,10 +297,10 @@ public class Reservas implements IReservas{
 		Comparator<Permanencia> comparadorPermanencia = (Permanencia p1, Permanencia p2) -> {
 			int comparacion = -1;
 			if (p1.getDia().equals(p2.getDia())) {
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorTramo && p2 instanceof PermanenciaPorTramo) {
 					comparacion = Integer.compare(((PermanenciaPorTramo)p1).getTramo().ordinal() , ((PermanenciaPorTramo)p2).getTramo().ordinal());
 				}
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorHora) {
 					comparacion = ((PermanenciaPorHora)p1).getHora().compareTo(((PermanenciaPorHora)p2).getHora());
 				}
 			}
@@ -335,10 +335,10 @@ public class Reservas implements IReservas{
 		Comparator<Permanencia> comparadorPermanencia = (Permanencia p1, Permanencia p2) -> {
 			int comparacion = -1;
 			if (p1.getDia().equals(p2.getDia())) {
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorTramo && p2 instanceof PermanenciaPorTramo) {
 					comparacion = Integer.compare(((PermanenciaPorTramo)p1).getTramo().ordinal() , ((PermanenciaPorTramo)p2).getTramo().ordinal());
 				}
-				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorTramo) {
+				if (p1 instanceof PermanenciaPorHora && p2 instanceof PermanenciaPorHora) {
 					comparacion = ((PermanenciaPorHora)p1).getHora().compareTo(((PermanenciaPorHora)p2).getHora());
 				}
 			}

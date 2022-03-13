@@ -5,6 +5,12 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria.Fa
 
 public enum FactoriaFuenteDatos {
 
+	MEMORIA {
+		public IFuenteDatos crear() {
+			return new FactoriaFuenteDatosMemoria();
+		}
+	},
+	
 	FICHEROS {
 		public IFuenteDatos crear() {
 			return new FactoriaFuenteDatosFicheros();

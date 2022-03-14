@@ -267,7 +267,7 @@ public class Reservas implements IReservas{
 	public List<String> representar()  {
 		List <String> representacion = new ArrayList<>();
 		
-		
+		// Llamamos a getReservas y no arrayListReserva para devolver las reservas ordenadas
 		for (Reserva a : getReservas()) {
 			representacion.add(a.toString());
 		}

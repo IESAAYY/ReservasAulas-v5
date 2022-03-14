@@ -3,6 +3,7 @@ package org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.memoria;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -35,10 +36,12 @@ public class Reservas implements IReservas{
 		setReservas(reservas);
 	}
 	
+	@Override
 	public void comenzar() {
 		
 	}
-
+	
+	@Override
 	public void terminar() {
 		
 	}
@@ -56,6 +59,7 @@ public class Reservas implements IReservas{
 		return cArrayListReserva;
 	}
 	
+
 	@Override
 	public List<Reserva> getReservas() {
 		List<Reserva> aLROrdenadaPorAulaYPermanencia = copiaProfundaReservas(arrayListReserva);
@@ -217,6 +221,7 @@ public class Reservas implements IReservas{
 	public List<String> representar()  {
 		List <String> representacion = new ArrayList<>();
 		
+		// Llamamos a getReservas y no arrayListReserva para devolver las reservas ordenadas
 		for (Reserva a : getReservas()) {
 			representacion.add(a.toString());
 		}

@@ -167,6 +167,7 @@ public class Aulas implements IAulas {
 	public List<String> representar() {
 		List<String> representacion = new ArrayList<>();
 
+		// Llamamos a getAulas y no arrayListAula para devolver las aulas ordenadas
 		for (Aula a : getAulas()) {
 			representacion.add(a.toString());
 		}

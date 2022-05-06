@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class PermanenciaPorHora extends Permanencia{
+public class PermanenciaPorHora extends Permanencia {
 
 	private static final int PUNTOS = 3;
 	private static final LocalTime HORA_INICIO = LocalTime.of(8, 00);

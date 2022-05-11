@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/MainAppGUI.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Aula.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Permanencia.java=UTF-8
 encoding//src/main/java/org/iesalandalus/programacion/reservasaulas/mvc/modelo/dominio/Profesor.java=UTF-8

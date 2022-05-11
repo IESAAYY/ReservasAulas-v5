@@ -1,0 +1,17 @@
+0.  Salir del programa
+
+1.  Insertar un aula
+2.  Borrar un aula insertado
+4.  Listar aulas insertadas
+
+5.  Insertar un profesor
+6.  Borrar un profesor insertado
+8.  Listar profesores insertados
+
+9.  Realizar una reserva
+10. Borrar una reserva insertada
+11. Listar reservas insertadas
+
+12. Listar reservas de un aula
+13. Listar reservas de un profesor
+14. consultar su disponibilidad

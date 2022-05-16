@@ -372,7 +372,7 @@ public class Reservas implements IReservas{
 	
 	/*
 	 * Algoritmo 1: tiene limitaciones dado que existe polimorfismo, por lo tanto, 
-	 * solo nos dice si para el aula y la fecha pasados al parámetros, hay una reserva, pero
+	 * solo nos dice si para el aula y la fecha pasados al parámetro, hay una reserva, pero
 	 * no del tipo de permanencia. 
 	 * Para resolver este problema, se usa el último algoritmo.
 	 * 

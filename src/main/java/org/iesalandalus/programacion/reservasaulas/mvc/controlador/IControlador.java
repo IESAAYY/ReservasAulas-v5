@@ -47,5 +47,9 @@ public interface IControlador {
 	List<Reserva> getReservasPermanencia(Permanencia permanencia);
 
 	boolean consultarDisponibilidad(Aula aula, Permanencia permanencia);
+	
+	List<Aula> getAulas();
+	
+	List<Profesor> getProfesores();
 
 }

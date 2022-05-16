@@ -161,7 +161,7 @@ public class Profesores implements IProfesores{
 			throw new NullPointerException("ERROR: No se puede borrar un profesor nulo.");
 		}
 		if (!arrayListProfesor.contains(profesor)) {
-			throw new OperationNotSupportedException("ERROR: No existe ningÃºn profesor con ese correo.");
+			throw new OperationNotSupportedException("ERROR: No existe ningún profesor con ese correo.");
 		}
 		
 		arrayListProfesor.remove(profesor);

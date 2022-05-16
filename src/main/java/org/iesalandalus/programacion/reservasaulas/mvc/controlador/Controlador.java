@@ -121,4 +121,13 @@ public class Controlador implements IControlador {
 		return modelo.consultarDisponibilidad(aula, permanencia);
 	}
 	
+	public List<Aula> getAulas() {
+		return modelo.getAulas();
+	}
+
+	@Override
+	public List<Profesor> getProfesores() {
+		return modelo.getProfesores();
+	}
+	
 }

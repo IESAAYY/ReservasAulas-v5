@@ -1,0 +1,13 @@
+Introduzca el correo del profesor: yulei@g.com
+Introduzca el nombre del aula: aula10
+
+Introduzca el día, el mes, y el año en el siguiente formato 
+dd/MM/yyyy (Ejemplo: 01/05/2022): 01/05/2022
+
+Elija el tipo de permanencia 
+0. Por tramo
+1. Por hora
+Introduzca una opción: 1
+
+Introduzca la hora en punto en el siguiente formato
+hh:mm (Ejemplo: 09:00): 09:00

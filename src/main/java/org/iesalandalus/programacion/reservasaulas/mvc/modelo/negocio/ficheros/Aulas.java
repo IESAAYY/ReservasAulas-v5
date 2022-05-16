@@ -157,7 +157,7 @@ public class Aulas implements IAulas {
 			throw new NullPointerException("ERROR: No se puede borrar un aula nula.");
 		}
 		if (!arrayListAula.contains(aula)) {
-			throw new OperationNotSupportedException("ERROR: No existe ningÃºn aula con ese nombre.");
+			throw new OperationNotSupportedException("ERROR: No existe ningúnn aula con ese nombre.");
 		}
 
 		arrayListAula.remove(aula);
@@ -178,5 +178,5 @@ public class Aulas implements IAulas {
 
 		return representacion;
 	}
-
+	
 }

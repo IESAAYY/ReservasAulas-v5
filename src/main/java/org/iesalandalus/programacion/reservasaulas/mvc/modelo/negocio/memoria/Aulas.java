@@ -133,4 +133,10 @@ public class Aulas implements IAulas {
 		return representacion;
 	}
 
+	@Override
+	public int getTamano() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

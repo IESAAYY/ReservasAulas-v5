@@ -7,6 +7,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.IModelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.Modelo;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.IVista;
 import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
+import org.iesalandalus.programacion.reservasaulas.mvc.vista.vistaGUI.controladorGUI.GUI;
 /**
  * 
  * @author Yulei
@@ -15,7 +16,8 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.Vista;
 public class MainApp {
 
 	public static final void main(String[] args) {
-		IModelo modelo = new Modelo(FactoriaFuenteDatos.FICHEROS.crear());
+		//IModelo modelo = new Modelo(FactoriaFuenteDatos.FICHEROS.crear());
+		IModelo modelo = new Modelo(FactoriaFuenteDatos.MONGODB.crear());
 		//IVista vista = new Vista();
 		IVista vista = new GUI();
 		IControlador controlador = new Controlador(modelo, vista);

@@ -23,4 +23,6 @@ public interface IAulas {
 	public void borrar(Aula aula) throws OperationNotSupportedException;
 	
 	public List<String> representar();
+
+	int getTamano();
 }

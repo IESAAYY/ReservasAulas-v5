@@ -13,7 +13,6 @@ import java.util.*;
 import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
-import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IAulas;
 
 public class Aulas implements IAulas {
@@ -177,6 +176,12 @@ public class Aulas implements IAulas {
 		}
 
 		return representacion;
+	}
+
+	@Override
+	public int getTamano() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

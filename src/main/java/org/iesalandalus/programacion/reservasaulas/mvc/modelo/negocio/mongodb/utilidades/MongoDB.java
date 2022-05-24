@@ -18,10 +18,13 @@ import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Tramo;
 
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
+import com.mongodb.MongoException;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
+
+import javafx.scene.control.Alert;
 
 public class MongoDB {
 
@@ -68,18 +71,28 @@ public class MongoDB {
 	}
 
 	private static MongoClient establecerConexion() {
+
 		Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
 		mongoLogger.setLevel(Level.SEVERE);
 		if (mongoClient == null) {
-			MongoCredential credenciales = MongoCredential.createScramSha1Credential(USUARIO, BD,
-					CONTRASENA.toCharArray());
-			mongoClient = MongoClients.create(MongoClientSettings.builder()
-					.applyToClusterSettings(
-							builder -> builder.hosts(Arrays.asList(new ServerAddress(SERVIDOR, PUERTO))))
-					.credential(credenciales).build());
-			System.out.println("Conexión a MongoDB establecida.");
+			try {
+				MongoCredential credenciales = MongoCredential.createScramSha1Credential(USUARIO, BD,
+						CONTRASENA.toCharArray());
+				mongoClient = MongoClients.create(MongoClientSettings.builder()
+						.applyToClusterSettings(
+								builder -> builder.hosts(Arrays.asList(new ServerAddress(SERVIDOR, PUERTO))))
+						.credential(credenciales).build());
+				System.out.println("Conexión a MongoDB establecida.");
+			} catch (MongoException e) {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Aviso");
+				alert.setHeaderText(null);
+				alert.setContentText("Error al establecer la conexión con MongoDB: " + e.getMessage());
+				alert.showAndWait();
+			}
 		}
 		return mongoClient;
+
 	}
 
 	public static void cerrarConexion() {
@@ -94,12 +107,12 @@ public class MongoDB {
 		if (profesor == null) {
 			return null;
 		}
-		return new Document().append(NOMBRE, profesor.getNombre()).append(CORREO, profesor.getCorreo()).append(TELEFONO, profesor.getTelefono());
+		return new Document().append(NOMBRE, profesor.getNombre()).append(CORREO, profesor.getCorreo()).append(TELEFONO,
+				profesor.getTelefono());
 	}
 
 	/*
-	 *  1: Ascendente
-	 * -1: Descentete
+	 * 1: Ascendente -1: Descentete
 	 */
 	public static Document getCriterioOrdenacionProfesor() {
 		return new Document().append(CORREO, 1);
@@ -139,15 +152,17 @@ public class MongoDB {
 		Profesor profesor = reserva.getProfesor();
 		Permanencia permanencia = reserva.getPermanencia();
 		Document dPermanencia = new Document().append(DIA, permanencia.getDia().format(FORMATO_DIA));
-		
+
 		// Si getPuntos() devuelve 10 es por tramo, si devuelve 3 es por hora.
 		if (permanencia.getPuntos() == 10) {
 			String tramo = ((PermanenciaPorTramo) permanencia).getTramo().name();
 			dPermanencia.append(TIPO, TIPO_TRAMO).append(TRAMO, tramo);
 		} else {
-			dPermanencia.append(TIPO, TIPO_HORA).append(HORA, ((PermanenciaPorHora) permanencia).getHora().format(FORMATO_HORA));
+			dPermanencia.append(TIPO, TIPO_HORA).append(HORA,
+					((PermanenciaPorHora) permanencia).getHora().format(FORMATO_HORA));
 		}
-		return new Document().append(PROFESOR, getDocumento(profesor)).append(AULA, getDocumento(aula)).append(PERMANENCIA, dPermanencia);
+		return new Document().append(PROFESOR, getDocumento(profesor)).append(AULA, getDocumento(aula))
+				.append(PERMANENCIA, dPermanencia);
 	}
 
 	public static Reserva getReserva(Document documentoReserva) {

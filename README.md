@@ -2,7 +2,7 @@
 ## Profesor: Paula Delgado García
 ## Alumno: Yulei Yan
 
-##### ¿Qué te pedimos que hagas?
+#### ¿Qué te pedimos que hagas?
 El cliente nos acaba de dar unos nuevos requisitos a aplicar sobre la última versión que le mostramos y que le gustó bastante. Lo que nos pide el cliente es lo siguiente:
 
 Que la aplicación no almacene los datos en ficheros y que lo haga en una base de datos creada para tal efecto.
@@ -29,7 +29,7 @@ Haz que la gestión de aulas utilice la persistencia en la BD. Haz un commit.
 Haz que la gestión de profesores utilice la persistencia en la BD. Haz un commit.
 Haz que la gestión de reservas utilice la persistencia en la BD. Haz un commit.
 
-###### Se valorará:
+##### Se valorará:
 
 - La nomenclatura del repositorio de GitHub y del archivo entregado sigue las indicaciones de entrega.
 - La indentación debe ser correcta en cada uno de los apartados.

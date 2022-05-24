@@ -62,19 +62,23 @@ public class Profesores implements IProfesores {
 		}
 	}
 
+	/*
+	 *  Bson com.mongodb.client.model.Filters.eq: Un filtro donde el primer parámetro es el nombre del atributo 
+	 *  y el segundo es el valor a buscar
+	 */
 	@Override
 	public Profesor buscar(Profesor profesor) {
-		Document documentoProfesor = coleccionProfesores.find().filter(eq(MongoDB.NOMBRE, profesor.getNombre())).first();
+		Document documentoProfesor = coleccionProfesores.find().filter(eq(MongoDB.CORREO, profesor.getCorreo())).first();
 		return MongoDB.getProfesor(documentoProfesor);
 	}
-
+	
 	@Override
 	public void borrar(Profesor profesor) throws OperationNotSupportedException {
 		if (profesor == null) {
 			throw new IllegalArgumentException("No se puede borrar un profesor nulo.");
 		}
 		if (buscar(profesor) != null) {
-			coleccionProfesores.deleteOne(eq(MongoDB.NOMBRE, profesor.getNombre()));
+			coleccionProfesores.deleteOne(eq(MongoDB.CORREO, profesor.getCorreo()));
 		} else {
 			throw new OperationNotSupportedException("El profesor a borrar no existe.");
 		} 

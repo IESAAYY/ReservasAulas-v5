@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseEvent;
@@ -112,6 +113,7 @@ public class LoginControlador {
 					marcoControlador.inicializarDato();
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
+					stage.getIcons().add(new Image(LocalizadorRecursos.class.getResource("iconos/CartelAula.png").toExternalForm()));
 
 					stage.setScene(scene);
 					stage.initStyle(StageStyle.UNDECORATED);

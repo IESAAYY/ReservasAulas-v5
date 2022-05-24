@@ -372,14 +372,12 @@ public class MarcoControlador {
 			comboBoxAulaD.getItems().clear();
 			comboBoxAulaD.getItems().addAll(iControlador.getAulas());
 		} catch (NullPointerException | OperationNotSupportedException | IllegalArgumentException e) {
-			// Dialogos.mostrarDialogoError("Error", e.getMessage());
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Aviso");
 			alert.setHeaderText(null);
 			alert.setContentText(e.getMessage());
 			alert.showAndWait();
 		}
-
 	}
 
 	@FXML
@@ -458,14 +456,19 @@ public class MarcoControlador {
 				ivOcupada.setVisible(true);
 				lbNoDisponible.setVisible(true);
 			}
-		} catch (NullPointerException | DateTimeParseException e) {
+		} catch (NullPointerException e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Aviso");
 			alert.setHeaderText(null);
 			alert.setContentText(e.getMessage());
 			alert.showAndWait();
+		} catch (DateTimeParseException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Aviso");
+			alert.setHeaderText(null);
+			alert.setContentText("Formato de hora incorrecto");
+			alert.showAndWait();
 		}
-
 	}
 
 	private Aula aulaTf() {
@@ -517,7 +520,7 @@ public class MarcoControlador {
 			olBuscarProfesor.clear();
 
 			for (Profesor p : iControlador.getProfesores()) {
-				if (p.getNombre().toLowerCase().contains(tfBuscarProfesor.toLowerCase())) {
+				if (p.getCorreo().toLowerCase().contains(tfBuscarProfesor.toLowerCase())) {
 					olBuscarProfesor.add(p);
 				}
 			}
@@ -601,14 +604,20 @@ public class MarcoControlador {
 		try {
 			iControlador.realizarReserva(reserva());
 			tvReserva.setItems(FXCollections.observableArrayList(iControlador.getReservas()));
-		} catch (OperationNotSupportedException | DateTimeParseException | NullPointerException
-				| IllegalArgumentException e) {
+		} catch (OperationNotSupportedException  | NullPointerException| IllegalArgumentException e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Aviso");
 			alert.setHeaderText(null);
 			alert.setContentText(e.getMessage());
 			alert.showAndWait();
+		} catch (DateTimeParseException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Aviso");
+			alert.setHeaderText(null);
+			alert.setContentText("Formato de hora incorrecto");
+			alert.showAndWait();
 		}
+		
 
 	}
 

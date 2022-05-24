@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -64,6 +65,7 @@ public class GUI extends Application implements IVista{
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/application.css").toExternalForm());
 				
+			primaryStage.getIcons().add(new Image(LocalizadorRecursos.class.getResource("iconos/CartelAula.png").toExternalForm()));
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.UNDECORATED);
 			primaryStage.show();

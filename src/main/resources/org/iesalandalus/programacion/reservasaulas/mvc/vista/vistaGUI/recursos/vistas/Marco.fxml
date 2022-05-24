@@ -201,8 +201,8 @@
          <center>
             <TableView fx:id="tvProfesor" onMouseClicked="#seleccionarTvProfesor" prefHeight="285.0" prefWidth="490.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="tcNombreProfesor" prefWidth="159.0" text="Nombre " />
                   <TableColumn fx:id="tcCorreo" prefWidth="154.0" text="Correo" />
+                  <TableColumn fx:id="tcNombreProfesor" prefWidth="159.0" text="Nombre " />
                   <TableColumn fx:id="tcTélefono" prefWidth="141.0" text="Teléfono" />
                </columns>
                <effect>
@@ -399,7 +399,7 @@
             </AnchorPane>
          </children>
       </HBox>
-      <TextField fx:id="tfBuscarProfesor" layoutX="1081.0" layoutY="175.0" onAction="#buscarProfesor" prefHeight="35.0" prefWidth="180.0" promptText="Buscar Profesor">
+      <TextField fx:id="tfBuscarProfesor" layoutX="1081.0" layoutY="175.0" onAction="#buscarProfesor" prefHeight="35.0" prefWidth="180.0" promptText="Buscar Profesor por correo">
          <effect>
             <Reflection bottomOpacity="0.11" fraction="0.32" />
          </effect>
